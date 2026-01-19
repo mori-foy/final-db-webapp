@@ -1,0 +1,99 @@
+body { font-family: system-ui, sans-serif; margin:0; background:#f6f6f6; }
+.header { position:sticky; top:0; display:flex; justify-content:space-between; align-items:center;
+  padding:12px 16px; background:#fff; border-bottom:1px solid #ddd; }
+.title { font-weight:700; }
+.container { max-width:720px; margin:0 auto; padding:16px; }
+.btn { background:#111; color:#fff; padding:10px 12px; border-radius:10px; text-decoration:none; display:inline-block; }
+.btn-sm { background:#eee; padding:6px 10px; border-radius:8px; text-decoration:none; border:0; cursor:pointer; }
+.danger { background:#ffd9d9; }
+.list { display:grid; gap:12px; }
+.card { display:flex; gap:12px; background:#fff; border-radius:14px; padding:12px; border:1px solid #eee; }
+.swatch { width:56px; height:56px; border-radius:12px; border:1px solid #ddd; }
+.meta { flex:1; }
+.date { font-weight:700; }
+.memo { color:#444; margin:6px 0; }
+.form { display:grid; gap:12px; }
+label { display:grid; gap:6px; }
+input, textarea { padding:10px; border-radius:10px; border:1px solid #ccc; }
+.actions { display:flex; gap:8px; align-items:center; margin-top:8px; }
+.month {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.week.header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.cell.empty {
+  background: #f2f2f2;
+}
+
+.cell.has-entry {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+/* 月切り替えバー */
+.monthbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin: 10px 0 12px;
+}
+
+.monthtitle{
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.navbtn{
+  width: 44px;
+  height: 36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 12px;
+  text-decoration:none;
+  background:#fff;
+  border: 1px solid #e7e7e7;
+}
+
+/* “プロっぽさ”の核：色がある日は少し浮かせる */
+.cell.has-entry{
+  box-shadow: 0 6px 18px rgba(0,0,0,0.16);
+  transform: translateY(-1px);
+}
+
+/* 今日の枠線（色があってもなくても強調） */
+.cell.today{
+  outline: 3px solid rgba(0,0,0,0.85);
+  outline-offset: 2px;
+}
+
+/* クリック時の操作感 */
+.cell.has-entry:active{
+  transform: translateY(0px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+}

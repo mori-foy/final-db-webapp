@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>いろにっき</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="title">いろにっき</div>
+  <a class="btn" href="/new">＋ 記録</a>
+</header>
+
+<main class="container">
+  <!-- 月切り替え -->
+  <div class="monthbar">
+    <a class="navbtn" href="/?y={{ prev_y }}&m={{ prev_m }}">←</a>
+    <div class="monthtitle">{{ year }}年 {{ month }}月</div>
+    <a class="navbtn" href="/?y={{ next_y }}&m={{ next_m }}">→</a>
+  </div>
+
+  <div class="week header">
+    <div>日</div><div>月</div><div>火</div>
+    <div>水</div><div>木</div><div>金</div><div>土</div>
+  </div>
+
+  <div class="grid">
+    {% for d in calendar_days %}
+      {% if d.entry %}
+        <a class="cell has-entry {% if d.is_today %}today{% endif %}"
+           href="/edit/{{ d.entry.id }}"
+           style="background: {{ d.entry.color }}">
+          {{ d.day }}
+        </a>
+      {% else %}
+        <div class="cell empty {% if d.is_today %}today{% endif %}">{{ d.day }}</div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</main>
+</body>
+</html>

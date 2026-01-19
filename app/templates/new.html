@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>新規記録 - いろにっき</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="title">新規記録</div>
+  <a class="btn" href="/">戻る</a>
+</header>
+
+<main class="container">
+  <form class="form" action="/create" method="post">
+    <label>日付
+      <input type="date" name="entry_date" value="{{ today }}">
+    </label>
+
+    <label>今日の色
+      <input type="color" name="color_code" value="#3A7BD5">
+    </label>
+
+    <label>メモ（任意）
+      <textarea name="memo" rows="3" placeholder="一言だけでもOK"></textarea>
+    </label>
+
+    <button class="btn" type="submit">保存</button>
+  </form>
+</main>
+</body>
+</html>
